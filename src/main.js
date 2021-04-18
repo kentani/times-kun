@@ -12,19 +12,12 @@ function doPost(e) {
     // Request URL Check
     case 'url_verification':
       return ContentService.createTextOutput(postData.challenge);
-      break;
     
     // eventを受け取る
     case 'event_callback':
       if (event.channel === postChannel || event.user === botId) return;
       let permalink = getPermalink(event.channel, event.event_ts);
       publicPost(postChannel, permalink);
-      break;
-
-    case 'channel_created':
-      publicPost(postChannel, 'aaa');
-      let channel = postData.channel.id;
-      publicPost(postChannel, channel);
       break;
 
     // do nothing

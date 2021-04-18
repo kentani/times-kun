@@ -4,7 +4,7 @@ var accessToken = properties.AccessToken;
 var postChannel = properties.PostChannel;
 var botId = properties.BotId;
 
-// バリューを指定して実行する
+// プロパティをセットする（バリューを指定して実行する）
 function setProperties() {
   PropertiesService.getScriptProperties().setProperty('VerificationToken','');
   PropertiesService.getScriptProperties().setProperty('AccessToken','');
@@ -12,6 +12,7 @@ function setProperties() {
   PropertiesService.getScriptProperties().setProperty('BotId','');
 }
 
+// timesチャンネルにbotをjoinさせる
 function joinChannels() {
   getChannelList().forEach((channel) => {
     if (channel.id !== postChannel && channel.name.match(/^times_/)) {
