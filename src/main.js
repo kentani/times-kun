@@ -15,6 +15,7 @@ function doPost(e) {
     
     // eventを受け取る
     case 'event_callback':
+      if ((event.subtype)) return;
       if (event.channel === postChannel || event.user === botId) return;
       let permalink = getPermalink(event.channel, event.event_ts);
       publicPost(postChannel, permalink);

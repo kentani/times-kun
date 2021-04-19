@@ -21,3 +21,11 @@ function joinChannels() {
     }
   })
 }
+
+function getChannels() {
+  getChannelList().forEach((channel) => {
+    if (channel.id !== postChannel && channel.name.match(/^times_/)) {
+      Logger.log(channel.name)
+    }
+  })
+}
